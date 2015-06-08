@@ -38,34 +38,141 @@
 	// console.log(Math.round(Math.random()));
 
 	//JSON
-	// console.log('JSON:');
-	// console.log(JSON);
-	// console.log("JSON.stringify({a:'a',b:{ba:'ba',bb:'bb'},[{ca:'ca',cb:'cb'},{cc:'cc',cd:'cd'}],d:'d'}):");
-	// console.log(JSON.stringify({a:'a',b:{ba:'ba',bb:'bb'},c:[{ca:'ca',cb:'cb'},{cc:'cc',cd:'cd'}],d:'d'}));
-	// console.log("JSON.parse('{\"a\":\"a\",\"b\":{\"ba\":\"ba\",\"bb\":\"bb\"},\"c\":[{\"ca\":\"ca\",\"cb\":\"cb\"},{\"cc\":\"cc\",\"cd\":\"cd\"}],\"d\":\"d\"}'):");
-	// console.log(JSON.parse('{"a":"a","b":{"ba":"ba","bb":"bb"},"c":[{"ca":"ca","cb":"cb"},{"cc":"cc","cd":"cd"}],"d":"d"}'));
+	console.log('JSON:');
+	console.log(JSON);
+	console.log("JSON.stringify({a:'a',b:{ba:'ba',bb:'bb'},[{ca:'ca',cb:'cb'},{cc:'cc',cd:'cd'}],d:'d'}):");
+	console.log(JSON.stringify({a:'a',b:{ba:'ba',bb:'bb'},c:[{ca:'ca',cb:'cb'},{cc:'cc',cd:'cd'}],d:'d'}));
+	console.log("JSON.parse('{\"a\":\"a\",\"b\":{\"ba\":\"ba\",\"bb\":\"bb\"},\"c\":[{\"ca\":\"ca\",\"cb\":\"cb\"},{\"cc\":\"cc\",\"cd\":\"cd\"}],\"d\":\"d\"}'):");
+	console.log(JSON.parse('{"a":"a","b":{"ba":"ba","bb":"bb"},"c":[{"ca":"ca","cb":"cb"},{"cc":"cc","cd":"cd"}],"d":"d"}'));
 	
 	// Function
-	console.log('Function:');
-	console.log(Function);
-	function Point(x,y){
-		this.x = x;
-		this.y = y;
-	}
-	Point.prototype.move = function(x,y){
-		this.x += x;
-		this.y += y;
-		return this.x;
-	}
-	var p = new Point(1,1);
-	var circle = {x:1,y:1,r:1};
-	p.move.apply(circle,[2,2]);
+	// console.log('Function:');
+	// console.log(Function);
+	// function Point(x,y){
+	// 	this.x = x;
+	// 	this.y = y;
+	// }
+	// Point.prototype.move = function(x,y){
+	// 	this.x += x;
+	// 	this.y += y;
+	// 	return this.x;
+	// }
+	// function Circle(x,y,r){
+	// 	Point.apply(this,[x,y]);
+	// 	this.r = r;
+	// }
+	// Circle.prototype = new Point();
+	// Circle.prototype.constructor = Circle;
+	// Circle.prototype.area = function(){
+	// 	return Math.PI*this.r*this.r;
+	// }
+	// var c = new Circle(2,2,3);
+	// var p = new Point(1,1);
+	// c.move(2,2);
+	// p.move(1,1);
 
-	p.move(2,1);
-	console.log('p:');
-	console.log(p);
-	console.log('circle:');
-	console.log(circle);
+	// console.log('p:');
+	// console.log(p);
+	// console.log('c:');
+	// console.log(c);
+	// console.log('c.area():');
+	// console.log(c.area());
+	
+	// Array
+	// console.log('Array.isArray(1):');
+	// console.log(Array.isArray(1));
+	
+	// var arr = [1,2,'e','f',6];
+	// console.log('arr:');
+	// console.log(arr);
+	// console.log('arr.splice(2,2,3,4,5):');
+	// console.log(arr.splice(2,2,3,4,5));
+	// console.log('arr:');
+	// console.log(arr);
+
+	// arr.splice(1,4);
+	// console.log('arr:');
+	// console.log(arr);
+	// console.log("arr.forEach--i+':'+v:")
+	// arr.forEach(function(v,i,a){
+	// 	console.log(i+':'+v);
+	// 	// console.log(a)
+	// })
+	
+	//String
+	// console.log('String.prototype:') 
+	// console.log(String.prototype) 
+	// var str = "I'am studing javascript.";
+	// console.log('str:');
+	// console.log(str);
+	// console.log("str.indexOf('stu'):");
+	// console.log(str.indexOf('stu'));
+	// console.log('str.slice(5,12):');
+	// console.log(str.slice(5,12));
+	// console.log('str:');
+	// console.log(str);
+	// console.log("str.split(' '):");
+	// console.log(str.split(' '));
+	// console.log('str.replace("studing","using"):');
+	// console.log(str.replace("studing","using"));
+	// console.log(3.256.toFixed(2));
+
+	//Number
+	// console.log('Number.prototype:');
+	// console.log(Number.prototype);
+	// console.log('3.254.toFixed(1):');
+	// console.log(3.254.toFixed(1));
+	// // console.log('3.254.toExponential(2):');
+	// // console.log(3.254.toExponential(2));
+	
+	//Object
+	// console.log('Object.prototype:');
+	// console.log(Object.prototype);
+	// console.log('{}.toString():');
+	// console.log({}.toString());
+	// var obj = Object.create({a:1, b:2});
+	// obj.c = 3;
+	// console.log('obj:');
+	// console.log(obj);
+	// console.log("obj.hasOwnProperty('c'):");
+	// console.log(obj.hasOwnProperty('c'));
+	// console.log("obj.hasOwnProperty('b'):");
+	// console.log(obj.hasOwnProperty('b'));
+
+	//type recognition
+	// function type(obj){
+	// 	return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+	// }
+	// console.log('type(1):')
+	// console.log(type(1))
+	// console.log("type('1'):")
+	// console.log(type('1'))
+	// console.log('type(true):')
+	// console.log(type(true))
+	// console.log('type(undefined):')
+	// console.log(type(undefined))
+	// console.log('type(null):')
+	// console.log(type(null))
+	// console.log('type({a:1}):')
+	// console.log(type({a:1}))
+	// console.log('type(function(){}):')
+	// console.log(type(function(){}))
+	// console.log('type([1,2]):')
+	// console.log(type([1,2]))
+	// console.log('type(/ds/i):')
+	// console.log(type(/ds/i))
+	// console.log('type(new Date()):')
+	// console.log(type(new Date()))
+	// console.log('type(new Error()):')
+	// console.log(type(new Error()))
+	// console.log('type(Math):')
+	// console.log(type(Math))
+	// console.log('type(JSON):')
+	// console.log(type(JSON))
+	// console.log('type(window):')
+	// console.log(type(window))
+	 
+	// 
 	</script>
 </body>
 </html>
