@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation box</title>
+	<style>
+		html, body {height: 100%; width: 100%;}
+		body { perspective:1000px; position: absolute;}
+		.box {position: absolute; width: 400px; height: 400px; left: 50%; top: 50%; margin-top: -200px; margin-left: -200px; transform-style: preserve-3d; animation: rotate 5s linear 13s infinite;}
+		.box div {position: absolute; box-sizing: border-box; top: 0; left: 0; bottom: 0; right: 0; border: 2px solid black; color: black; font-size: 100px; text-align: center; line-height: 400px; transition: background 2s linear;}
+      	.box:hover div {color: white;}
+		.top {background: rgba(200,0,0,0); animation:top 2s linear 0s both;}
+		.box:hover .top {background: rgba(200,0,0,.7);}
+		.bottom {background: rgba(100,0,0,0); animation: bottom 2s linear 2s both;}
+		.box:hover .bottom {background: rgba(100,0,0,.7);}
+		.left {background: rgba(0,200,0,0); animation: left 2s linear 4s both;}
+		.box:hover .left {background: rgba(0,200,0,.7);}
+		.right {background: rgba(0,100,0,0); animation: right 2s linear 6s both;}
+		.box:hover .right {background: rgba(0,100,0,.7);}
+		.back {background: rgba(0,0,200,0); animation: back 2s linear 8s both; z-index: -1;}
+		.box:hover .back {background: rgba(0,0,200,.7);}
+		.front {background: rgba(0,0,100,0); animation: front 2s linear 10s both; z-index: 1;}
+		.box:hover .front {background: rgba(0,0,100,.7);}
+		@keyframes rotate {100%{transform:rotate3d(1,1,1,360deg);}}
+		@keyframes top {100%{transform:translate(0,-200px) rotate3d(1,0,0,90deg);}}
+		@keyframes bottom {100%{transform:translate(0,200px) rotate3d(1,0,0,-90deg);}}
+		@keyframes left {100%{transform:translate(-200px) rotate3d(0,1,0,-90deg);}}
+		@keyframes right {100%{transform:translate(200px) rotate3d(0,1,0,90deg);}}
+		@keyframes back {100%{transform:translate3d(0,0,-200px);}}
+		@keyframes front {100%{transform:translate3d(0,0,200px);}}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="top">top</div>
+		<div class="bottom">bottom</div>
+		<div class="left">left</div>
+		<div class="right">right</div>
+		<div class="front">front</div>
+		<div class="back">back</div>
+	</div>
+</body>
+</html>

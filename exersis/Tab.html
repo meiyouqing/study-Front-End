@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab</title>
+	<style>
+		.tab {width: 572px; border: 1px solid #999; font: 14px "microsoft yahei";}
+		.tab-nav {height: 30px;}
+		.tab-nav h5 {float: left; margin: 0; width: 190px; height: 30px; line-height: 30px; text-align: center; background-color: #f1f1f1; border: 1px solid #cecece; border-width: 0 1px 1px 0;}
+		.tab-nav h5.active {background-color: #fff; border-bottom: none;}
+		.tab-nav h5.noBorR {border-right: none;}
+
+		.tab-content {padding: 20px; background-color: #fff; display: none;}
+		.tab-content.active {display: block;}
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<div class="tab-nav">
+			<h5 class="active">课程</h5>
+			<h5>学习计划</h5>
+			<h5 class="noBorR">技能图谱</h5>
+		</div>
+		<div class="tab-content active">
+			<p>课程内容</p>
+		</div>
+		<div class="tab-content">
+			<p>学习计划内容</p>
+		</div>
+		<div class="tab-content">
+			<p>技能图谱内容</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pop box</title>
+	<style>
+		.flexBox {
+			display: flex; 
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			flex-flow:column;
+			justify-content: center;
+		}
+		.popBox {
+			align-self: center;
+			position: relative;
+			width: 302px; 
+			border: 1px solid #ccc; 
+			border-radius: 5px;
+			overflow: hidden;
+		}
+		.popBox-head {
+			
+		}
+		.popBox-title {
+			height: 40px; 
+			background-color: #eee;
+			margin: 0;
+			padding: 0 20px;
+			font: 14px/40px "microsoft yahei";
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.popBox-content {
+			padding: 20px;
+			background-color: white;
+			font: 12px "宋体";
+		}
+		.popBox-content p {
+			line-height: 1.5;
+		}
+		.popBox-content .comfimeBtn {
+			display: block;
+			width: 80px; 
+			height: 30px; 
+			line-height: 30px;
+			text-decoration: none;
+			margin: 20px auto 0;
+			background-color: blue;
+			color: white;
+			text-align: center;
+			border-radius: 5px;
+		}
+		.popBox-closeBtn {
+			position: absolute; 
+			display: block; 
+			width: 10px; 
+			height: 10px; 
+			right: 10px; 
+			top: 10px; 
+			cursor: pointer;
+			background: url(../x.png) no-repeat;
+		}		
+	</style>
+</head>
+<body>
+	<div class="flexBox">
+		<div class="popBox">
+			<h5 class="popBox-title">标题栏</h5>
+			<div class="popBox-content">
+				<p>内容段落</p>
+				<a class="comfimeBtn" href="javascript:void(0)">确定</a>
+			</div>
+			<i class="popBox-closeBtn"></i>
+		</div>
+	</div>
+</body>
+</html>
