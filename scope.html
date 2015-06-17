@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scope</title>
+	<script>
+	//静态作用域
+	// var x=10;
+	// function foo(){
+	// 	alert(x);//10
+	// }
+	// function bar(){
+	// 	var x=20;
+	// 	foo();
+	// }
+	// bar();
+	
+	//动态作用域
+	// var x=10;
+	// function foo(){
+	// 	alert(x);//20
+	// }
+	// function bar(){
+	// 	var x=20;
+	// 	foo();
+	// }
+	// bar();
+
+	//词法环境-with(函数定义和函数表达式的区别)
+	// var foo="abc";
+	// var e = function(){
+	// 	alert(foo);//"abc"
+	// }
+	// with({
+	// 	foo:"bar"
+	// }) {
+	// 	function f(){
+	// 		alert(foo);//"abc"
+	// 	}
+	// 	(function(){
+	// 		alert(foo);//"bar"
+	// 	})();
+	// 	f();
+	// 	e();
+	// }
+
+	//词法环境-带名称的函数表达式
+	// (function A(){
+	// 	A = 123;
+	// 	console.log(A);//function A()
+	// })();
+	//
+	(function(){
+		a=5;
+		alert(window.a);
+		var a=10;
+		alert(a);
+	})();
+	console.log(1&&0);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
