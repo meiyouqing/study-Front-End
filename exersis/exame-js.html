@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>exame</title>
+	<script>
+	function myType(obj){
+		return obj && obj.constructor && obj.constructor.toString().match(/function\s*([^(]*)/)[1];
+	}
+	function search(arr,item){
+		var i,len=arr.length;
+		for(i=0;i<len;i++){
+			if(arr[i] === item){
+				return i;
+			}
+		}
+	}
+	var arr = [1, 2, 4, 6, 7, 9, 19,20, 30, 40, 45, 47];
+	var idx = search(arr, 4); // 执行后idx值等于10
+	//alert(idx);
+	
+	
+	function add(){
+		var _args = arguments, num=0;
+		return function(){
+			if(arguments.length){
+				Array.prototype.push.apply(_args,arguments);
+				return arguments.callee;
+			}else{
+				for(var i=0,len=_args.length; i<len; i++){
+					num += _args[i];
+				}
+
+				return num
+			}
+			
+		}
+	}
+	console.log(add(1)(2)(3)())
+
+// var add = function() {
+//     var _this = this,
+//     _args = arguments;
+    
+//     return function() {
+//         if (!arguments.length) {
+//             var sum = 0;
+//             for (var i = 0,c; c = _args[i++];) 
+//             	sum += c
+//             return sum
+//         } else {
+//             Array.prototype.push.apply(_args, arguments); 
+//             console.log(_args);
+//             return arguments.callee;
+//         }
+//     };
+// }
+// console.log(add(9)(1)(2)(3)(4)());//10
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
