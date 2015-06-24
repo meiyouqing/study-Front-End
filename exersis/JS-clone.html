@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clone</title>
+	<script>
+		var OA = {a:1,b:true,c:[31,32,33],d:{da:41,db:{dba:421,dbb:422}}},
+		newOA,
+		absoluteNewOA,
+		cloneObj;
+		function type(obj){
+			return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+		}
+		//我也来一个浅拷贝函数：
+		function simpleClone(srcObj){
+			// if(srcObj.constractor !== "Object"){return false}
+			var newObj = {};
+			for(var n in srcObj){
+				newObj[n] = srcObj[n];
+			}
+			return newObj;
+		}
+      	newOA = simpleClone(OA);
+      	newOA.b = false;
+      	newOA.c.push(4);
+      	newOA.d.db.dba = 0;
+      	// console.log(newOA);//newOA属性b,c,d都有改变。
+      	// console.log(OA);//OA属性c/d都变成和newOA一样的，b没有变化。
+      	function dg(num){
+      		if(num<=1){
+      			return num;
+      		}else{
+      			return num*arguments.callee(num-1);
+      		}
+      	}
+      	console.log(dg(4));
+
+      	//我又来一个深拷贝函数：
+      	function deepClone(srcObj, cloneObj){
+      		if(type(srcObj)==="object"){
+      			cloneObj = cloneObj || {};
+  				for(var n in srcObj){ 					
+  					if(type(srcObj[n])==="object" || Array.isArray(srcObj[n])){
+  						cloneObj[n] = arguments.callee(srcObj[n], cloneObj[n]);
+  					}else{
+  						cloneObj[n] = srcObj[n];
+  					}
+  				}
+      		}else if(Array.isArray(srcObj)){
+      			cloneObj = cloneObj || [];
+  				for(var i=0,len=srcObj.length; i<len; i++){   					
+  					if(Array.isArray(srcObj[i]) || type(srcObj[i])==="object"){
+  						arguments.callee(srcObj[i], cloneObj[i]);
+  					}else {
+  						cloneObj.push(srcObj[i]);
+  					}
+  				}
+      		}else {
+      			//cloneObj = srcObj;
+      		}
+      		console.log(cloneObj);
+      		return cloneObj;
+      	}
+      	absoluteNewOA = deepClone(OA, cloneObj);
+      	absoluteNewOA.a=0;
+      	absoluteNewOA.c[0]=0;
+      	absoluteNewOA.d.da="instant of d.da";
+      	absoluteNewOA.d.db.dba="instant of d.db.dba";
+      	console.log(absoluteNewOA);
+       	console.log(newOA);//newOA属性b,c,d都有改变。
+      	console.log(OA);//OA属性c/d都变成和newOA一样的，b没有变化。
+     	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
