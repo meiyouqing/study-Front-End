@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table && form</title>
+</head>
+<body>
+	<table border="1" cellpadding="10" cellspacing="0">
+		<caption>运费详情</caption>
+		<thead>
+			<tr>
+				<th>区域</th>
+				<th>寄达地</th>
+				<th>首重（元/1000g）</th>
+				<th>续重（元/1000g）</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th rowspan="2">一区</th>
+				<td>浙江、上海、苏州</td>
+				<td>6</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>江西、安徽</td>
+				<td>7</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<th>二区</th>
+				<td>吉林、黑龙江、云南</td>
+				<td>10</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<th>三区</th>
+				<td>新疆、西藏</td>
+				<td>15</td>
+				<td>10</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<form action=""  method="">
+		<fieldset>
+		<legend>填写个人信息</legend>
+		<div>
+			<label for="selFile">头像</label>
+			<input id="selFile" name="selFile" type="file" value="选择文件">
+		</div>
+		<div>
+			<label for="nick">昵称</label>
+			<input id="nick" name="nick" type="text">
+		</div>
+		<div>
+			<label for="educational">学历</label>
+			<select id="educational" name="educational">
+				<option value="1">大专</option>
+				<option value="2">本科</option>
+			</select>
+		</div>
+		<div>
+			<label for="sex">性别</label>
+			<span id="sex">
+				<input type="radio" name="sex" value="1" checked >男
+				<input type="radio" name="sex" value="0" >女
+			</span>
+		</div>
+		<div>
+			<label for="favorites">爱好</label>
+			<span id="favorites">
+				<input type="checkbox" name="favorite" value="1" checked >电影
+				<input type="checkbox" name="favorite" value="1" >摄影
+				<input type="checkbox" name="favorite" value="1" >音乐
+				<input type="checkbox" name="favorite" value="1" checked >阅读
+			</span>
+		</div>
+		<div>
+			<label for="signatureLine">签名</label>
+			<textarea id="signatureLine" name="signature" cols="30" rows="4"></textarea>
+		</div>
+		<div>
+			<button type="submit">保存</button>
+		</div>
+		</fieldset>
+	</form>
+</body>
+</html>

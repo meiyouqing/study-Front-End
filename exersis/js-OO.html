@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript Object Oriented</title>
+	<script>
+	//Circle class
+	// function Circle(r){
+	// 	this.r = r;
+	// }
+	// Circle.prototype.perimeter = function(){
+	// 	return 2*this.r*Math.PI;
+	// }
+	// Circle.prototype.area = function(){
+	// 	return this.r*this.r*Math.PI;
+	// }
+	// var c = new Circle(5);
+	// alert(c.perimeter());
+	// alert(c.area());
+	</script>
+	<script>
+	//inherit whith constructor
+	// function Animal(age){
+	// 	this.alive = true;
+	// 	this.age = age;
+	// } 
+	// Animal.prototype.woof = function(){
+	// 	alert("Woof~~");
+	// }
+	// function Human(name,age){
+	// 	Animal.call(this,age);
+	// 	this.name = name;
+	// }
+	// Human.prototype = new Animal();
+	// Human.prototype.constructor = Human;
+	// Human.prototype.say = function(){
+	// 	alert("I am "+this.name+", I am "+this.age+" years old.");
+	// }
+	// var me = new Human('May',35);
+	// alert(me.alive);
+	// me.woof();
+	// me.say();
+ //    alert(me.hasOwnProperty('woof'));
+	</script>
+	<script>
+		function move(x, y) {
+		    this.x += x;
+		    this.y += y;
+		}
+		var point = {x:1, y:2};
+		var pointmove = move.bind(point);
+		pointmove(2,2); // {x:3, y:4}
+		console.log(point);
+		pointmove(3,3);
+		console.log(point);
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>
