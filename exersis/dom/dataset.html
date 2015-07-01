@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dataset</title>
+</head>
+<body>
+<input id="user" name="user" type="text">
+	<script>
+	var input = document.getElementsById('user');
+	if(input.dataset){
+		input.dataset.name = "魏文庆";
+		input.dataset.age = "28";
+	}else{
+		input.setAttribute('fata-name','魏文庆');
+	}
+	</script>
+</body>
+</html>

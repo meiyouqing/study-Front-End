@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dataset</title>
+</head>
+<body>
+<input type="text">
+	<script>
+	var input = document.getElementsByTagName('input');
+	console.log(input);
+	if(document.dataset){
+		input[0].dataset.name = "魏文庆";
+	}
+	</script>
+</body>
+</html>

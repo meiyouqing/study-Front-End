@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*.a.b{ border-color:transparent; }
+
+.a{ width:100px; height:100px; padding:10px; border:10px solid blue; background-color:red; }
+
+.b{ padding:20px; }*/
+/*.a{ width:100px; padding:10px; border-left:10px solid blue; box-sizing:border-box;}
+
+.b{ height:100px; background-color:red; }*/
+/*.a.b{ padding-top: 20px; }
+
+.a{ width : 10px; }
+
+.b{ padding : 10px; }*/
+
+/*.a{ position:relative; width:100px; padding:10px; border:2px solid #000; }
+
+.b{ position:absolute; left:0; right:0; }*/
+/*.a{ width : 200px; height : 100px;}
+
+.b{ padding : 20%; background-color : red; }*/
+
+
+/*td table{ float:left; background-position:left; background-color: red; }*/
+/*.a{ line-height:300%; font-size:12px; }
+
+.a p{ font-size:16px; }*/
+		</style>
+	</head>
+	<body>
+		<!--<div class="a b"></div>-->
+		<!--<div class="a"><div class="b"></div></div>-->
+		<!--<div class="a b"></div>-->
+		<!--<div class="a"><div class="b"></div></div>-->
+		<!--<div class="a"><div class="b"></div></div>-->
+		<!--<table border="" cellspacing="" cellpadding="">
+			<tr><th>Header</th></tr>
+			<tr><td>Data <table border="" cellspacing="" cellpadding="">
+				<tr><th>Header</th></tr>
+				<tr><td>Data</td></tr>
+			</table></td></tr>
+		</table>
+		<input type="" name="" id="" value="" />-->
+		<!--<div class="a"><p>Hello World</p></div>-->
+		<!--<style type="text/css">
+			html,body,h4,p,img{margin:0;padding:0;border:none;}
+			.newsPic {float: left; width: 100px; height: 100px;}
+			.textWrap {margin-left: 115px; font-family: '宋体'; line-height: 25px; height: 100px; overflow: hidden;}
+			.textWrap h4 {font-weight: bold; font-size: 16px; color: #000; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+			.textWrap p {font-size: 14px; color: #666;}
+		</style>
+		<div class="picNews">
+			<img class="newsPic" src="http://163.com/x.jpg"/>
+			<div class="textWrap">
+				<h4>标题文字标题文字标题文字标题文字标题文字标题文字</h4>
+				<p>段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字段落文字</p>
+			</div>
+		</div>-->
+		<style type="text/css">
+			html,body,fieldset,input,button,legend {outline: 0;border: 0;margin: 0;padding: 0;}
+			.mt15 {
+				margin-top: 15px;
+			}
+			#login legend {
+				font: bold 14px/16px "微软雅黑";
+			}
+			#login label {
+				display: block;
+				float: left;
+				width: 60px;
+				font: 12px/20px "宋体";
+			}
+			#login input {
+				width: 198px;
+				height: 18px;
+				border: 1px solid #ddd;
+				vertical-align: top;
+			}
+			.login-submit {
+				width: 40px;
+				height: 20px;
+				margin-left: 60px;
+				border: none;
+				background-color: dodgerblue;
+				color: #fff;
+				text-align: center;
+				font: 12px/20px "宋体";
+			}
+		
+		</style>
+		<form action="/login" method="post">
+			<fieldset id="login">
+				<legend>登录网易通行证</legend>
+				<div class="mt15">
+					<label for="userName">用户名：</label>
+					<input type="text" name="userName" id="userName" />
+				</div>
+				<div class="mt15">
+					<label for="userPW">密码：</label>
+					<input type="password" name="userPW" id="userPW" />
+				</div>
+			</fieldset>
+			<input class="login-submit mt15" type="submit" value="登录"/>
+		</form>
+		
+		<table border="1" cellspacing="2" cellpadding="0">
+			<caption>照片冲印价格详情</caption>
+			<thead>
+			<tr><th rowspan="2">相片尺寸</th><th colspan="2">相纸（元/张</th></tr>
+			<tr><th>富士</th><th>柯达</th></tr>
+			</thead>
+			<tr><th>6寸</th><td>0.45</td><td>0.6</td></tr>
+			<tr><th>10寸</th><td>3.89</td><td>5</td></tr>
+			<tfoot><tr><td colspan="3">运费8元/单，满99元免运费</td></tr></tfoot>
+		</table>
+		<style type="text/css">
+			ul {margin: 0; padding: 0; list-style: none;}
+			input {padding: 0; outline: 0;}
+			
+			.dropWrap {
+				font: 12px/28px "宋体";
+				color: #000;
+				position: relative;
+			}
+			.dropBtn {
+				width: 50px;
+				height: 28px;
+				box-sizing: content-box;
+				text-align: center;
+				background-color: #eee;
+				border: 1px solid #ddd;
+			}
+			.dropMenu {
+				position: absolute;
+				top: 31px;
+			}
+			.dropMenu li a {
+				display: block;
+				height: 30px;
+				line-height: 30px;
+				color: #000;
+				text-decoration: none;
+				background-color: #fff;
+				padding: 0 10px;
+				border: 1px solid #ddd;
+			}
+			.dropMenu li a:hover {
+				background-color: #ddd;
+			}
+		</style>
+		<div class="dropWrap">
+			<input class="dropBtn" type="button" name="btn" id="btn" value="按钮" />
+			<!--<ul class="dropMenu">
+				<li><a href="#">下拉菜单项</a></li>
+				<li><a href="#">下拉菜单项</a></li>
+				<li><a href="#">下拉菜单项</a></li>
+				<li><a href="#">下拉菜单项</a></li>
+			</ul>-->
+		</div>
+		
+<form action="" method="">
+	<fieldset id="myForm">
+		<legend></legend>
+		<div>
+			<label for="selFile">头像</label>
+			<input id="selFile" name="selFile" type="file" value="选择文件">
+		</div>
+		<div>
+			<label for="nick">昵称</label>
+			<input type="text" id="nick" name="nick">
+		</div>
+		<div>
+			<label for="educational">学历</label>
+			<select id="educational" name="educational">
+				<option value="1" selected="">大专</option>
+				<option value="2">本科</option>
+			</select>
+		</div>
+		<div>
+			<label>性别</label>
+			<input type="radio" name="sex" value="1" checked >男
+			<input type="radio" name="sex" value="0" >女
+		</div>
+		<div>
+			<label>爱好</label>
+			<input type="checkbox" name="favorite" value="1" checked >电影
+			<input type="checkbox" name="favorite" value="1" >摄影
+			<input type="checkbox" name="favorite" value="1" >音乐
+			<input type="checkbox" name="favorite" value="1" checked >阅读
+		</div>
+		<div>
+			<label for="signatureLine">签名</label>
+			<textarea id="signatureLine" name="signature" cols="30" rows="4"></textarea>
+		</div>
+	</fieldset>
+	<button type="submit" name="mySubmit">保存</button>
+</form>
+</body>
+</html>
