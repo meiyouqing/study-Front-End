@@ -33,7 +33,7 @@
     </div>
     <script>
     	function getElementsByClassName(element, names) {
-		    if (element.getElementsByClassName) {
+		    if (!element.getElementsByClassName) {
 		        return element.getElementsByClassName(names);
 		    } else {
 		        var elements = element.getElementsByTagName('*');
@@ -50,6 +50,7 @@
 		                    flag = false;
 		                    break;
 		                }
+		                console.log(classNameStr.indexOf(' ' + name + ''));
 		            }
 		            if (flag) {
 		                result.push(element);
@@ -58,12 +59,40 @@
 		        return result;
 		    }
 		}
+    	classGet = function(strs, root){
+		root = typeof root == 'string'? document.getElementById(root) : root;
+		if(!document.getElementsByClassName){
+			return root.getElementsByClassName(strs);
+		}else{
+			var resultArr = [], classStr, elesArr, strArr, flag;
+			if(root){
+			 elesArr = root.getElementsByTagName('*');
+			}else {
+			 elesArr = document.body.getElementsByTagName('*');	
+			}
+			for(var i=0, ele; ele = elesArr[i]; i++){
+				strArr = strs.split(' ');
+				classStr = ' ' + ele.className + ' ';
+				flag = true;
+				for(var j=0, str; str=strArr[j]; j++){
+					if(classStr.indexOf(' '+str+' ') == -1){
+						flag = false;
+						break;
+					}
+				}
+				if(flag){
+					resultArr.push(ele);
+				}
+			}
+			return resultArr;
+		}
+	};
+//		var users = getElementsByClassName(document, 'user');
+//		alert(users.length + ' users');
 
-		var users = getElementsByClassName(document, 'user');
-		alert(users.length + ' users');
-
-		// var lastUser = getElementsByClassName(document, 'user last')[0];
-		// alert('last user is ' + lastUser.innerText);
+		 var lastUser = classGet('user last', document.body)[0];
+		 alert('last user is ' + lastUser.innerText);
+		 
     </script>
 </body>
 </html>
