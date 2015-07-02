@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dom tree</title>
+	</head>
+	<body>
+	<div>
+		<table id="card">
+			<caption id="accountName"></caption>
+			<tr><th>姓名：</th><td id="name"></td></tr>
+			<tr><th>邮箱：</th><td id="email"></td></tr>
+			<tr><th>手机：</th><td id="mobile"></td></tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+	var ele = document.getElementById('card');
+		console.log(ele.children);
+		console.log(getChildren(ele));
+		console.log(ele.childNodes);
+		
+		function getChildren(ele){
+			if(ele.children){
+				return ele.children;
+			}else{
+				var children = [];
+				for(var i=0,child; child=ele.childNodes[i]; i++){
+					if(child.nodeType == 1){
+						children.push(child);
+					}
+				}
+				return children;
+			}
+		}
+	</script>
+		
+	</body>
+</html>
