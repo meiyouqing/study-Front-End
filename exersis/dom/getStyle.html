@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>get style</title>
+	</head>
+	<body>
+		<style type="text/css">
+			input {border: 1px solid black; color: #008000;}
+			#h {color: #0F00FA;border: 1px solid forestgreen;}
+			input#h {color: #228B22;}
+		</style>
+		<input type="text" name="" id="h" value="hello world" />
+		<script type="text/javascript">
+			var input = document.getElementById('h');
+//			console.log(getComputedStyle(input));
+//			console.log(getComputedStyle(input).color);
+			function getTheStyle(element, cssPropertyName){
+				if(window.getComputedStyle){
+					return getComputedStyle(element)[cssPropertyName];
+				}else{
+					return element.currentStyle[cssPropertyName];
+				}
+			}
+			console.log(getTheStyle(input,"color"));
+		</script>
+	</body>
+</html>
