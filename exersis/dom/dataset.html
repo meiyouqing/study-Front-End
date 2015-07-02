@@ -1,19 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>dataset</title>
+	<style>
+		li{cursor: default;line-height: 1.8;}
+		table{border-collapse: collapse;}
+		th, td, caption{padding: 10px;border: 1px solid #ddd;font-size: 14px;}
+		th{color: #999;}
+		caption{font-size: 20px;font-weight: bold;border-bottom: none;}
+		#card{position: absolute;top: 10px;left: 150px;}
+	</style>
 </head>
 <body>
-<input id="user" name="user" type="text">
+	<ul>
+		<li data-id="123456" data-account-name="wwq"
+			data-name="魏文庆" data-email="wwq123@163.com" 
+			data-mobile="13524543878">wwq</li>
+		<li data-id="123457" data-account-name="cjf"
+			data-name="蔡剑飞" data-email="cjf123@163.com" 
+			data-mobile="13968789868">cjf</li>
+	</ul>
+	<div id="card" style="display:none">
+		<table>
+			<caption id="accountName"></caption>
+			<tr><th>姓名：</th><td id="name"></td></tr>
+			<tr><th>邮箱：</th><td id="email"></td></tr>
+			<tr><th>手机：</th><td id="mobile"></td></tr>
+		</table>
+
+	</div>
 	<script>
-	var input = document.getElementsById('user');
-	if(input.dataset){
-		input.dataset.name = "魏文庆";
-		input.dataset.age = "28";
-	}else{
-		input.setAttribute('fata-name','魏文庆');
+		function type(obj){
+		return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
 	}
+
+		function $(id){
+			return document.getElementById(id);
+		}
+		function getData(node){
+			if(node.dataset){
+				return node.dataset;
+			}else{
+				var nameArr=[], subNameArr, result={};
+				var attrs=node.attributes;//获取节点的所有属性的键值
+				for(var i=0,attr; attr=attrs[i]; i++){//遍历所有属性，这里for使用了刚刚从课程demo里get的条件语句
+					if(/^data-/.test(attr.name)){//筛选data-开头的自定义属性
+						subNameArr=attr.name.split('-').slice(1,Infinity);//slice'-'的属性名称的数组，并去掉data
+						if(subNameArr.length>1){//如果数组长度大于1
+							for(var j=0,subName; subName=subNameArr[j]; j++){
+								if(j>0){//筛选sub属性名，并设置值的头字母大写
+									subNameArr[j] = subName.substring(0,1).toUpperCase()+subName.substring(1,subName.length);
+								}
+							}
+						};
+						nameArr.push(subNameArr.join('')); //把拼装好的新属性名存入数组
+						result[nameArr[i]] = attr.value;//设置返回对象的键值
+					}
+				}
+				return result;
+			}
+		}
+		var lis = document.getElementsByTagName('li');
+		for(var i = 0, li;li = lis[i]; i++){
+			li.onmouseenter = function(event){
+				event = event || window.event;
+				var user = event.target|| event.srcElement;
+				var data = getData(user);//console.log(data); console.log(user.attributes[0])
+												
+				$('accountName').innerText = data.accountName;
+				$('name').innerText = data.name;
+				$('email').innerText = data.email;
+				$('mobile').innerText = data.mobile;
+
+				$('card').style.display = 'block';
+			};
+
+			li.onmouseleave = function(event){
+				$('card').style.display = 'none';
+			};
+
+		}
+		
 	</script>
 </body>
 </html>

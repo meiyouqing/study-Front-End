@@ -23,9 +23,12 @@
         var h2 = document.createElement('h2');
         h2.innerText = '8882人在学习该课程:';
         var ul = document.createElement('ul');
+        var li = document.createElement('li');
+        li.innerText = "some the thing";
         
-        // users.appendChild(h2);
-        // users.appendChild(ul);
+           users.appendChild(h2);
+           var theUl = users.appendChild(ul);
+           theUl.appendChild(li);
     </script>
 </body>
 </html>
