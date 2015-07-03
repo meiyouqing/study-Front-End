@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>open a new window</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		window.goto("http://www.163.com")
+			var w = window.open(' http://www.163.com', 'subwindow','width=400, height=350,toolbar=no,resizable=no');
+				window.onbeforeunload = function(){
+					prompt('are you sure to leve?','no, not yet!');
+				}
+			setTimeout(function(){
+				w.close();
+			},5000)
+		</script>
+	</body>
+</html>
