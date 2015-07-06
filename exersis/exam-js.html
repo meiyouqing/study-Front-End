@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+
+		<script>
+			 //二分查找
+			 //			function search(arr, dst) {
+			 //				if (!dst || !(arr instanceof Array)) return;
+			 //				var len = arr.length;
+			 //				var left = 0,
+			 //					right = len - 1;
+			 //				var mid;
+			 //				while (left <= right) {
+			 //					mid = Math.floor((left + right) / 2);
+			 //					if (dst == arr[mid]) {
+			 //						return mid;
+			 //					} else if (dst < arr[mid]) {
+			 //						right = mid - 1;
+			 //					} else {
+			 //						left = mid + 1;
+			 //					}
+			 //				}
+			 //				return false;
+			 //			}
+			 //			
+			 //			var arr = [1, 2, 4, 6, 7, 9, 19,20, 30, 40, 45, 47];
+			 //          var idx = search(arr, 6);
+			 //科利华函数？
+//			 			function add(x) {
+//			 				var sum = x;
+//			 				var tmp = function(y) {
+//			 					sum += y;
+//			 					return tmp;
+//			 				};
+//			 				tmp.toString = function() {
+//			 					return sum;
+//			 				};
+//			 				return tmp;
+//			 			}
+//			 			add(2)(9)(7)
+			
+			//bind(null)?
+//			function add(num) {
+//					function core(number1, num) {
+//						var sum = number1 + num;
+//						var result = core.bind(null, sum);
+//						result.valueOf = function() {
+//							return sum;
+//						};
+//						return result;
+//					}
+//					return core(num, 0);
+//				}
+				//			add(10)(10);
+				//			add(10)(20)(50);
+				//			add(10)(20)(50)(100);
+		</script>
+
+	</body>
+
+</html>

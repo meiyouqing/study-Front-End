@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>get ajax</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function get(url, options, callback) {
+				var xhr = function() {
+					if (!XMLHttpRequest) {
+						try {
+							return ActiveXObject("Msxml2.XMLHTTP6.0");
+						} catch (e) {}
+						try {
+							return ActiveXObject("Msxml2.XMLHTTP3.0");
+						} catch (e) {}
+						try {
+							return ActiveXObject("Msxml2.XMLHTTP");
+						} catch (e) {}
+					}
+					return new XMLHttpRequest();
+				}
+				xhr.onReadystatechange = function() {
+					if (xhr.readyState === 4) {
+						if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+							callback(xhr.responseText);
+						} else {
+							alert("request is unseccessful: " + xhr.status)
+						}
+					}
+				};
+				xhr.open('post', url, true);
+				//xhr.setRequestHeader('myHeader','myValue');
+				xhr.send(serialize(options));
+			}
+
+			function serialize(data) {
+				if (!data) return '';
+				var pair = [];
+				for (name in data) {
+					if (!data.hasOwnProperty(name)) continue;
+					if (typeof data[name] === 'function') continue;
+					var value = data[name].toString();
+					name = encodeURIComponent(name);
+					value = encodeURIComponent(value);
+					pair.push(name + '=' + value);
+				}
+				return pair.join('&');
+			}
+		</script>
+	</body>
+
+</html>
