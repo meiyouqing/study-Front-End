@@ -21,7 +21,7 @@
   <form action="/login"  method="post" class="m-form">
     <fieldset>
       <legend>照片选择</legend>
-      <label for="file">选择照片</label><input type="file" id="file">
+      <label for="file">选择照片</label><input type="file" accept="image/*,video/*" multiple  id="file">
     </fieldset>
     <fieldset>
       <legend>综合设置</legend>
@@ -41,6 +41,14 @@
             <option value="0">快递</option>
             <option value="1">EMS</option>
             <option value="2" selected>平邮</option>
+            <optgroup label="1.DOM base" disabled>
+            	<option value="1.1">1.1 docment tree</option>
+            	<option value="1.2">1.2 nodes operate</option>
+            </optgroup>
+            <optgroup label="2.EVENT modul" >
+            	<option value="2.1" label="haha" disabled="yes">2.1 EVENT type</option>
+            	<option value="2.2">2.2 EVENT modul</option>
+            </optgroup>
         </select>
       </div>
       <div>

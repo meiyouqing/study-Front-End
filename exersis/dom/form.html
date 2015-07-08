@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>dom-form</title>
+		<style type="text/css">
+			div {margin: 20px;}
+		</style>
+	</head>
+
+	<body>
+		<!--
+        	作者：80940112@qq.com
+        	时间：2015-07-07
+        	描述：多重下拉选择器:select.add(option);select.remove(option);new Option(item,value)
+        -->
+		<div>
+			<select id="chapter" name="chapter">
+				<option value="1">--</option>
+			</select>
+			<select id="section" name="section">
+				<option value="1"> -- </option>
+			</select>
+			<script type="text/javascript">
+				var chapters = [{text:'chapter one',value:'1'},{text:'chapter two',value:'2'}];var sections = {1:[{text:'chapter one section one',value:'1'},{text:'chapter one section two',value:'2'},{text:'chapter one section three',value:'3'},{text:'chapter one section four',value:'4'}],2:[{text:'chapter two section one',value:'1'},{text:'chapter two section two',value:'2'}]};
+		      		function fillSelect (select, list){
+		      			for(var i=select.length-1;i>0;i--){
+		      				select.remove(i);
+		      			}
+		      			list.forEach(function(item){
+		      				var option = new Option(item.text,item.value);
+		      				select.add(option);
+		      			});
+		      		}
+		      		var chapterSelect = document.getElementById('chapter');
+		      		var sectionSelect = document.getElementById('section');
+		      		
+		      		fillSelect(chapterSelect, chapters);
+		      		chapterSelect.addEventListener('change',function(event){
+		      			var value = event.target.value,
+		      				list = sections[value] || [];
+		      			fillSelect(sectionSelect,list);
+		      		})
+			</script>
+		</div>
+
+		<!--
+        	作者：80940112@qq.com
+        	时间：2015-07-07
+        	描述：封装一个可支持任意级选择器级联的控件:select.add(option);select.remove(option);new Option(item,value)
+        -->
+		<div id="multiSelects">
+			<select>
+				<option value="0">--</option>
+			</select>
+			<select>
+				<option value="0">--</option>
+			</select>
+			<select>
+				<option value="0">--</option>
+			</select>
+			<script src="selectData.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+	      		function cascade(selects, data){
+		      		function fillSelect (select, list){
+		      			for(var i=select.length-1;i>0;i--){
+		      				select.remove(i);
+		      			}
+		      			list && list.forEach(function(item){
+		      				var option = new Option(item.text,item.value);
+		      				select.add(option);
+		      			});
+		      		}
+		      		function cascadeGetData(data,value){
+	      				var list = null;
+	      				function getList(arr){
+			      			arr.forEach(function(sub){
+			      				if(sub.value === value) {
+			      					list = sub.list;
+			      				}
+			      				if(!list && sub.list) getList(sub.list);
+			      			})
+	      				}
+	      				getList(data);
+	      				return list;
+		      		}
+		      		//初始化第一级选择器
+		      		fillSelect(selects[0], data);
+		      		//添加‘change’事件监听器
+		      		for(var i=0,select; select=selects[i];i++){
+			      		(function(select,i){
+				      		select.addEventListener('change',function(event){
+				      			var value = event.target.value,
+				      				list = cascadeGetData(data,value) || [];
+				      			if(selects[i+1]) fillSelect(selects[i+1],list);
+				      		})	
+			      		})(select,i);
+		      		}
+	      		}
+	      		var selects = document.getElementById('multiSelects').getElementsByTagName('select');
+	      		cascade(selects,selectData);
+			</script>
+		</div>
+
+		<!--
+        	作者：80940112@qq.com
+        	时间：2015-07-07
+        	描述：@输入提示    textarea-selection
+        -->
+		<div>
+			<textarea id="selection" name="ta" rows="6" cols="50">活动市房价快速减肥if我斯蒂芬斯福德斯蒂芬一</textarea>
+			<style type="text/css">
+				.showList {width: 100px; position: fixed; background-color: white; border: 1px solid #ddd; display: none;}
+				.showList li {font: bold 14px/2 "微软雅黑"; cursor: pointer;}
+				.showList li:hover {background-color: #eee;}
+			</style>
+			<ul class="showList">
+				<li>Lily</li>
+				<li>Maicle</li>
+				<li>May</li>
+				<li>lucy</li>
+				<li>Mark</li>
+			</ul>
+			<script type="text/javascript">
+				var textarea = document.getElementById('selection');
+	//      	textarea.selectionDirection="backward";
+				selection(textarea,4,16)
+	        	textarea.addEventListener('input',function(event){
+	        		var target = event.target,
+	        			cussor = target.selectionStart;
+	    			if(target.value.charAt(cussor-1)==='@'){
+	    				doShowList(function(name){
+	    					var end = cussor+name.length;
+	    					target.setRangeText(name,cussor,end,'end');
+	    				});
+	    			}
+	        	});
+				function selection(input,start,end){
+					 input.setSelectionRange(start,end);
+				}
+	        	function doShowList(fn){
+	        		var list = document.getElementsByClassName('showList')[0];
+	        		var li = list.getElementsByTagName('li');
+	        		list.style.display='block';
+	        		list.addEventListener('click',function(e){
+	        			var target = e.target,
+	        				name =' '+target.firstChild.nodeValue+' ';
+	        				fn(name);
+	        		},false)
+	        	}
+			</script>
+		</div>
+	</body>
+
+</html>
