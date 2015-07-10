@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>login form</title>
+	</head>
+	<body>
+		<style type="text/css">
+			.J_arr {border: 1px solid red; color: red;}
+		</style>
+	 	<form id="loginForm" action="/login">
+			<legend>手机号码登录</legend>
+			<fieldset>
+				<div>
+					<label for="mobile">手机号：</label>
+					<input id="mobile" name="mobile" type="text">
+				</div>
+				<div>
+					<label for="password">密　码：</label>
+					<input id="password" type="password" name="password">
+				</div>
+				<div><button id="login">登　录</button></div>
+			</fieldset>
+		</form>	
+		<script>
+			function checkForm(){
+				var loginForm = document.getElementById('loginForm'),
+					mobile = document.getElementById('mobile'),
+					pw = document.getElementById('password'),
+					login = document.getElementById('login'),
+					flag;
+				var addEvent = function(node,eventType,handler){
+					if(node.addEventListener){
+						return node.addEventListener(eventType,handler,false);
+					}else{
+						return node.attachEvent(on+eventType,handler);
+					}
+				}
+				function check(node){
+					var value = node.value;
+					switch(node){
+						case mobile:
+							if(!(value.length==11 && number(value) && value[0]==1)){
+								flag = false;
+								node.className = 'J_arr';
+								alert('请输入正确的手机号！')
+							}
+						break;
+						case pw:
+							if(!(/\d/i test(value)&&/[a-z]/i test(value))){
+								flag = false;
+								node.className = 'J_arr';
+								alert('密码必须以数字和字母组成！')
+							}else if(value.length<6 || value.length>16){
+								flag = false;
+								node.className = 'J_arr';
+								alert('密码长度必须为6至16个字符！')
+							}
+						break;
+					}
+				}
+				function clear(node){
+					node.className = '';
+				}
+				addEvent(mobile,focus,clear(mobile));
+			}
+		</script>
+	</body>
+</html>
