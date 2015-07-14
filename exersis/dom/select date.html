@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+ <select name="year" id="year">
+        <option value="0">--</option>
+        <option value="1999">1999</option>
+        <option value="2000">2000</option>
+        <option value="2001">2001</option>
+    </select>年
+    <select name="month" id="month">
+ 		<option value="0">--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>月
+    <select name="date" id="date">
+        <option disabled="disabled" value="0">--</option>
+    </select>日
+    <script type="text/javascript">
+    	(function(){
+    		var year = document.getElementById('year'),
+    			month = document.getElementById('month'),
+    			_date = document.getElementById('date');
+			on(year,'change',function(e){
+				var tar = e.target;
+				if(tar.value == '0'){
+					setMonth(false);
+					setDate(0)
+				}else{
+					setMonth(true);
+				}
+			});
+			on(month,'change',function(e){
+				var tar = e.target;
+				if(tar.value == '0'){
+					setDate(0);
+				}else if(tar.value == '2'){
+					setDate(28);
+				}else if(tar.value =='1'||tar.value =='3'||tar.value =='5'||tar.value =='7'||tar.value =='8'||tar.value =='10'||tar.value =='12'){
+					setDate(31);
+				}else if(tar.value =='4'||tar.value =='6'||tar.value =='9'||tar.value =='11'){
+					setDate(30);
+				}
+			})
+			function setMonth(swicth){
+				var _option = month.getElementsByTagName('option');
+					_option[0].setAttribute('selected','selected');
+				if(swicth){
+					for(var i=1;i<13;i++){
+					_option[i].removeAttribute('disabled');
+					}
+				}else{
+					for(var i=1;i<13;i++){
+					_option[i].setAttribute('disabled','disabled');
+					}
+				}
+			}
+			function setDate(num){
+				var _option;
+				_date.innerHTML='<option disabled="disabled" value="0">--</option>';
+				if(!num) return;
+				for(var i=1;i<=num; i++){
+						_option = document.createElement('option');
+						_option.innerText=i;
+						_option.setAttribute('value',i);
+					_date.appendChild(_option);
+				}
+			}
+			function on(node, event, handle){
+		    	if(node.addEventListener){
+		    		node.addEventListener(event, handle, false)
+		    	}else {
+		    		node.attachEvent('on'+event,handle);
+	    		}
+    		}
+    	})()
+    </script>
+</body>
+
+</html>

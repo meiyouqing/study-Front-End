@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>columns layout</title>
+	</head>
+
+	<body>
+		<!--
+        	作者：80940112@qq.com
+        	时间：2015-07-11
+        	描述：float+overflow 
+        -->
+		<div style="margin-bottom: 50px;">
+			<style type="text/css">
+				body,p,div {margin: 0; padding: 0; line-height: 200%;}
+				.left { background-color: greenyellow;}
+				.right { background-color: lightslategray;}
+				
+				.left1 {float: left; width: 100px; margin-right: 20px;}
+				.right1 {overflow: hidden;}
+			</style>
+			<div class="left left1">
+				<p>left</p>
+			</div>
+			<div class="right right1">
+				<p>right</p>
+				<p style="clear: both;">right</p>
+			</div>
+		</div>
+		<!--
+        	作者：80940112@qq.com
+        	时间：2015-07-11
+        	描述：float+margin+(fix) 
+        -->
+		<div class="parent2" style="margin-bottom: 50px;">
+			<style type="text/css">
+ 				.left2 {float: left; width: 100px;position: relative;}
+				.right-fix {float: right; width: 100%; margin-left: -100px;}
+				.right2 {margin-left: 120px;}
+				
+				/**背景等高**/
+				.left2,.right2{padding-bottom:9999px;margin-bottom:-9999px;}
+				.parent2 {overflow:hidden;}
+			</style>
+			<div class="left left2">
+				<p>left</p>
+			</div>
+			<div class="right-fix">
+				<div class="right right2">
+					<p>right</p>
+					<p style="clear: both;">right</p>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<!--
+        	作者：80940112@qq.com
+        	时间：2015-07-11
+        	描述：table + table-cell 
+        -->
+		<div style="margin-bottom: 50px;">
+			<style type="text/css">
+				.parent {display: table; width: 100%; table-layout: fixed;}
+				.left3,.right3 {display: table-cell;}
+				.left3 {width: 100px; padding-right: 20px;}
+			</style>
+			<div class="parent">
+				<div class="left left3">
+					<p>left</p>
+				</div>
+				<div class="right right3">
+					<p>right</p>
+					<p style="clear: both;">right</p>
+				</div>
+			</div>
+		</div>
+		<!--
+        	作者：80940112@qq.com
+        	时间：2015-07-11
+        	描述：flex 
+        -->
+		<div style="margin-bottom: 50px;">
+			<style type="text/css">
+				.parent1 {display: flex;}
+				.left4 {width: 100px; margin-right: 20px;}
+				.right4 {flex: 1 1 0;}
+			</style>
+			<div class="parent1">
+				<div class="left left4">
+					<p>left</p>
+				</div>
+				<div class="right right4">
+					<p>right</p>
+					<p style="clear: both;">right</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

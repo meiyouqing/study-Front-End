@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>three columns fit layout</title>
+	</head>
+	<body>
+		<style type="text/css">
+		 	/*此方案，考虑到center内容可能较为重要，所以首先加载center*/
+			*{margin: 0; padding: 0;}
+			.wrap {position: relative;}
+			.left, .right {width: 100px; position: absolute; background: greenyellow;}
+			.left {left: 0;}
+			.right {right: 0;}
+			.center {position: absolute; left: 110px; right: 110px; background: cadetblue;}
+		</style>
+		<div class="wrap">
+			<div class="center">
+				<p>center</p>
+			</div>
+			<div class="left">
+				<p>left</p>
+			</div>
+			<div class="right">
+				<p>right</p>
+			</div>
+		</div>
+	</body>
+</html>
